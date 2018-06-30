@@ -1,0 +1,29 @@
+{
+  "name": "mws-restaurant-stage-3-final",
+  "version": "1.0.0",
+  "description": "## Before starting reviews",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "idb": "^2.1.2",
+    "imagemin": "^5.3.1",
+    "imagemin-webp": "^4.1.0",
+    "node-gyp": "^3.6.2",
+    "sharp": "^0.20.3"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-minify": "^2.1.0",
+    "gulp-responsive": "^2.10.0",
+    "gulp-watch": "^5.0.0",
+    "gulp-webp": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Engin Bozkurt",
+  "license": "ISC"
+}

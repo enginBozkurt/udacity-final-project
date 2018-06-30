@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" /> -->
+  <link rel="preload" href="dist/styles.css" as="style" onload="this.rel='stylesheet'">
+  <title>Restaurant Reviews</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111"/>
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <script>
+    (function() {
+      'use strict';
+
+      if (!('serviceWorker' in navigator)) {
+        console.log('Service worker not supported');
+        return;
+      }
+      navigator.serviceWorker.register('service-worker.js')
+      .then(function(registration) {
+        console.log('Registered at scope:', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('Registration failed:', error);
+      });
+
+    })();
+  </script>
+
+  <header>
+    <nav>
+      <h1><a href="/">Restaurant Reviews</a></h1>
+    </nav>
+  </header>
+
+  <main id="maincontent">
+    <section id="map-container">
+      <div id="map" role="application"></div>
+      <div id="toggle-map">
+        <input type="button" onclick="addMapToApp()" value="Show map" type="button" aria-pressed="false">
+      </div>
+    </section>
+    <section>
+      <div class="filter-options wrapper">
+        <div class="col-big">
+          <h2>Filter Results</h2>
+        </div>
+        <div class="col-tiny">
+          <label for="neighborhoods-select">Neighborhoods</label>
+          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+            <option value="all">All Neighborhoods</option>
+          </select>
+        </div>
+        <div class="col-tiny">
+          <label for="cuisines-select">Cuisines</label>
+          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+            <option value="all">All Cuisines</option>
+          </select>
+        </div>
+      </div>
+      <div id="restaurants-list" class="wrapper"></div>
+    </section>
+  </main>
+
+  
+  <script type="application/javascript" charset="utf-8" src="dist/dbhelper.js"></script>
+  <script type="application/javascript" charset="utf-8" src="dist/main.js"></script>
+
+  <footer id="footer">
+    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+  </footer>
+
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCkztJBGXVEEZPAtlOkFhUT1CrKSi1WJg4&libraries=places&callback=initMap"></script> -->
+
+</body>
+
+</html>
